@@ -16,7 +16,10 @@ class RomanIntConverter
       'CM' => 900,
       'M' => 1000
     }
+    MAX_NUMBER = 4000
+    
     def to_roman(number)
+        return 'Invalid input' if number <= 0 || number > MAX_NUMBER
         result = ''
         until number.zero?
           best_roman, value = ROMAN_NUMBERS.max_by { |_, v| v <= number ? v : 0 }
